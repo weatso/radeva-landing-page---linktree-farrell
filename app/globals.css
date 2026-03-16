@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- PALET WARNA RADEVA --- */
+  --color-radeva-900: #15201B;
+  --color-radeva-800: #1B2A24;
+  --color-radeva-700: #2C3E35;
+
+  --color-gold-500: #D4AF37;
+  --color-gold-400: #E5D3B3;
+  --color-gold-100: #F9F5EB;
+
+  /* --- TYPOGRAPHY --- */
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
+  
+  /* --- ANIMATIONS --- */
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- UTILITIES & RESET --- */
+
+/* Reset Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* --- PERBAIKAN DI SINI --- */
+@utility bg-noise {
+  position: relative;
+  isolation: isolate;
+
+  /* Gunakan nesting '&::after' untuk pseudo-element */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Pastikan file ini ada di public/assets/noise.png atau hapus baris ini jika belum ada */
+    background-image: url('/assets/noise.png'); 
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: -1;
+    mix-blend-mode: overlay;
+  }
+}
