@@ -59,7 +59,7 @@ export function AudioPlayer({ src }: { src: string }) {
 
   return (
     <>
-      <audio ref={audioRef} src={src} loop />
+      <audio ref={audioRef} src={src} autoPlay loop />
       <button 
         onClick={togglePlay}
         className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl backdrop-blur-md transition-all duration-300 flex items-center justify-center 

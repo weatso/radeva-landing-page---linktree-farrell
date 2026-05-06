@@ -41,10 +41,17 @@ export default function Navbar() {
         <div className="container mx-auto px-6 flex items-center justify-between">
           
           {/* LOGO */}
-          <Link href="/" className="relative z-50">
-            <span className={`font-serif text-2xl md:text-3xl font-bold tracking-wider transition-colors duration-300 ${isScrolled ? 'text-gold-400' : 'text-gold-100'}`}>
-              RADEVA
-            </span>
+          <Link href="/" className="relative z-50 flex items-center gap-3 group">
+            <img 
+              src="/images/logo/Logo-R.svg" 
+              alt="Radeva Logo Icon" 
+              className="h-10 md:h-12 w-auto transition-transform duration-500 group-hover:scale-110"
+            />
+            <img 
+              src="/images/logo/logofont.svg" 
+              alt="Radeva Logo Text" 
+              className="h-14 md:h-20 w-auto transition-opacity duration-500"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
@@ -61,7 +68,7 @@ export default function Navbar() {
             
             {/* CTA Button Kecil di Navbar */}
             <Link 
-              href="https://wa.me/628123456789" // Ganti no WA nanti
+              href="https://api.whatsapp.com/message/D7Q5SSKRFV7ND1?autoload=1&app_absent=0" 
               className="px-6 py-2 border border-gold-500/50 text-gold-400 font-sans text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-radeva-900 transition-all duration-300"
             >
               Consult

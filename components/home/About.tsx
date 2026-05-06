@@ -83,7 +83,7 @@ export default function About() {
             <div className="relative h-full w-full overflow-hidden rounded-sm bg-radeva-800">
                {/* GANTI SRC FOTO INI */}
               <Image 
-                src="/images/about-wedding.jpg" 
+                src="/porto/porto 5.jpg" 
                 alt="Radeva Team in Action"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700 ease-out"

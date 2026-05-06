@@ -12,28 +12,28 @@ const PORTFOLIO_ITEMS = [
     title: "Aditya & Sarah",
     category: "Intimate Outdoor",
     location: "Amanjiwo, Magelang",
-    img: "/images/portfolio-1.jpg"
+    img: "/porto/porto 3.jpg"
   },
   {
     id: 2,
     title: "Michael & Jessica",
     category: "Grand Ballroom",
     location: "The Langham, Jakarta",
-    img: "/images/portfolio-2.jpg"
+    img: "/porto/porto 4.jpg"
   },
   {
     id: 3,
     title: "Rendra & Maya",
     category: "Traditional Javanese",
     location: "Plataran Heritage, Borobudur",
-    img: "/images/portfolio-3.jpg"
+    img: "/porto/porto 7.jpg"
   },
   {
     id: 4,
     title: "David & Clara",
     category: "Modern Minimalist",
     location: "Padma Hotel, Semarang",
-    img: "/images/portfolio-4.jpg"
+    img: "/porto/porto 8.jpg"
   },
 ];
 

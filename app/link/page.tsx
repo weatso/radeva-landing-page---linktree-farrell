@@ -1,9 +1,10 @@
 import React from 'react'
 import { client } from '@/sanity/lib/client'
 import { urlForImage } from '@/sanity/lib/image'
-import { Mail, Instagram, MapPin, Youtube, Facebook, Twitter, Phone, SendHorizontal } from 'lucide-react'
+import { Mail, Instagram, MapPin, Youtube, Facebook, Twitter, Phone } from 'lucide-react'
 import { Metadata } from 'next'
 import { AudioPlayer, ParticlesEffect, BankAccountBox, LiveCountdown } from '@/components/LinktreeClientFeatures'
+import { PortfolioSection } from '@/components/PortfolioSection'
 
 // --- SVG Icons ---
 // Menerima hex color langsung dari color picker Sanity
@@ -48,11 +49,9 @@ const renderSocialIcon = (platform: string, url: string, idx: number) => {
 export const revalidate = 10 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const query = `*[_type == "linktreeSettings"][0]`
-  const data = await client.fetch(query).catch(() => null)
   return {
-    title: data?.seoTitle || 'Radeva Links',
-    description: data?.seoDescription || 'Radeva Wedding Organizer Linktree',
+    title: 'Radeva Links',
+    description: 'Radeva Wedding Organizer Linktree',
   }
 }
 
@@ -73,7 +72,10 @@ export default async function LinktreePage() {
   const data = await client.fetch(query).catch(() => null)
   
   // Content values
-  const profileName = data?.profileName || 'Radeva Wedding Organizer'
+  const profileNameRaw = data?.profileName || 'Radeva Wedding Organizer'
+  const nameParts = profileNameRaw.trim().split(/\s+/)
+  const lastWord = nameParts.pop() || ''
+  const firstPart = nameParts.join(' ')
   const location = data?.location || 'Semarang & Jawa Tengah'
   const hideLocation = data?.hideLocation || false
   const heroText = data?.heroText || 'Hai #RekanRadeva! Let us be the part of your BIG DAY'
@@ -101,10 +103,12 @@ export default async function LinktreePage() {
   const profileShape = data?.profileShape || 'rounded-full'
   const socialPosition = data?.socialPosition || 'top'
   const animStyle = data?.buttonHoverAnimation || 'scale'
+  const portfolioLayout = data?.portfolioLayout || 'grid'
+  const portfolioItems = data?.portfolioItems || []
 
   // Filtering
-  const normalLinksAndWidgets = links.filter((l: any) => (l.type === 'link' || l.type === 'divider' || l.type === 'newsletter' || l.type === 'countdown' || l.type === 'bank') && l.isActive !== false)
-  const portfolioLinks = links.filter((l: any) => l.type === 'portfolio' && l.isActive !== false)
+  const normalLinksAndWidgets = links.filter((l: any) => (l.type === 'link' || l.type === 'divider' || l.type === 'countdown' || l.type === 'bank') && l.isActive !== false)
+  const portfolioLinks = portfolioItems // Use the new dedicated field
 
   // Auto-contrast: hitung apakah bg terang/gelap dari hex warna
   const getContrastMode = (hex: string): 'light-bg' | 'dark-bg' => {
@@ -229,12 +233,15 @@ export default async function LinktreePage() {
             </div>
             <div className="text-center px-4">
               <h1 className="text-[22px] font-bold tracking-tight text-center">
-                 {profileName}
-                 {verifiedBadge && (
-                   <span className="inline-block align-middle ml-1.5" style={{ marginTop: '-3px' }}>
-                     <VerifiedBadge hexColor={verifiedBadgeColorHex} />
-                   </span>
-                 )}
+                {firstPart}{firstPart ? ' ' : ''}
+                <span className="inline-block whitespace-nowrap">
+                  {lastWord}
+                  {verifiedBadge && (
+                    <span className="inline-block align-middle ml-1.5" style={{ marginTop: '-3px' }}>
+                      <VerifiedBadge hexColor={verifiedBadgeColorHex} />
+                    </span>
+                  )}
+                </span>
               </h1>
               {!hideLocation && (
                 <div className="flex items-center justify-center gap-1.5 opacity-80 mt-1 text-[13.5px] font-medium">
@@ -298,20 +305,6 @@ export default async function LinktreePage() {
                 )
               }
 
-              if (link.type === 'newsletter') {
-                return (
-                  <div key={idx} className={`w-full p-6 text-center shadow-sm relative overflow-hidden backdrop-blur-md animate-stagger ${cardBg} ${buttonShape}`} style={{animationDelay: `${animDelay}s`}}>
-                    <h3 className="text-[15.5px] font-bold mb-2">{link.title || 'Subscribe Newsletter'}</h3>
-                    <p className="text-[13px] opacity-80 mb-4">Dapatkan info promo spesial kami.</p>
-                    <form className="flex gap-2">
-                      <input type="email" placeholder="Email Anda..." className="flex-1 px-4 py-2.5 rounded-xl bg-black/10 text-current placeholder:text-current/50 outline-none border border-transparent focus:border-current/30 text-sm transition-colors" />
-                      <button type="button" className={`px-4 py-2.5 rounded-xl font-bold text-sm flex items-center justify-center ${buttonSolidBg}`}>
-                        <SendHorizontal className="w-4 h-4" />
-                      </button>
-                    </form>
-                  </div>
-                )
-              }
 
               let currentBtnClass = buttonClassesBase;
               let highlightEl = null;
@@ -347,24 +340,13 @@ export default async function LinktreePage() {
             })}
           </div>
 
-          {/* Portfolio Grid Section */}
-          {portfolioLinks.length > 0 && (
-            <div className="w-full mt-6">
-              <h2 className="text-center font-bold text-lg mb-5 tracking-tight animate-stagger" style={{animationDelay: `1.2s`}}>Our Portofolio</h2>
-              <div className="grid grid-cols-2 gap-4">
-                 {portfolioLinks.map((link: any, idx: number) => (
-                    <a key={idx} href={link.url} className={`group relative aspect-[4/5] overflow-hidden shadow-sm bg-black/10 block border border-white/20 animate-stagger ${hoverEffect} ${buttonShape}`} style={{animationDelay: `${1.3 + (idx*0.1)}s`}}>
-                      {link.icon && (
-                         <img src={urlForImage(link.icon)?.url()} alt={link.title} className="absolute inset-0 w-full h-full object-cover" />
-                      )}
-                      <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                        <span className="block text-center text-white/95 font-medium text-sm pt-8">{link.title}</span>
-                      </div>
-                    </a>
-                 ))}
-              </div>
-            </div>
-          )}
+          {/* Portfolio Section */}
+          <PortfolioSection 
+            links={portfolioLinks} 
+            layout={portfolioLayout as any}
+            hoverEffect={hoverEffect}
+            buttonShape={buttonShape}
+          />
 
           {/* Social Icons Mini (BOTTOM) */}
           {socialPosition === 'bottom' && socialLinks.length > 0 && (

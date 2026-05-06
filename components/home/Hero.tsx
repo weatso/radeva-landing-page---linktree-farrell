@@ -22,19 +22,19 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      
+
       {/* 1. BACKGROUND LAYER (PARALLAX) */}
-      <motion.div 
+      <motion.div
         style={{ y: yBackground }}
         className="absolute inset-0 z-0"
       >
         {/* Overlay Gelap agar teks terbaca */}
         <div className="absolute inset-0 bg-radeva-900/40 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-radeva-900 via-transparent to-transparent z-10" />
-        
+
         {/* Placeholder Image - Ganti dengan foto wedding terbaik klien nanti */}
-        <Image 
-          src="/images/hero-bg.jpg" // Pastikan file ini ada nanti!
+        <Image
+          src="/porto/porto 2.jpg" // Pastikan file ini ada nanti!
           alt="Radeva Luxury Wedding"
           fill
           priority
@@ -43,13 +43,13 @@ export default function Hero() {
       </motion.div>
 
       {/* 2. CONTENT LAYER */}
-      <motion.div 
+      <motion.div
         style={{ opacity: opacityText }}
         className="relative z-20 container mx-auto px-6 text-center flex flex-col items-center"
       >
-        
+
         {/* Small Tagline */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -63,7 +63,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Main Title - Serif Font */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -74,7 +74,7 @@ export default function Hero() {
         </motion.h1>
 
         {/* Description */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
@@ -89,8 +89,8 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          <Link 
-            href="https://wa.me/628123456789" // Ganti No WA
+          <Link
+            href="https://api.whatsapp.com/message/D7Q5SSKRFV7ND1?autoload=1&app_absent=0"
             className="group relative inline-flex items-center gap-3 px-8 py-4 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-radeva-900 transition-all duration-300 ease-out"
           >
             <span className="font-sans text-xs tracking-[0.2em] uppercase">Konsultasi Gratis</span>
@@ -100,7 +100,7 @@ export default function Hero() {
       </motion.div>
 
       {/* 3. SCROLL INDICATOR (Bottom) */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ duration: 2, delay: 1.5, repeat: Infinity }}
