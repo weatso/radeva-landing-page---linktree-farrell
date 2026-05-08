@@ -57,7 +57,7 @@ export default function Hero() {
         >
           <span className="h-[1px] w-8 md:w-16 bg-gold-400/60"></span>
           <span className="font-sans text-xs md:text-sm tracking-[0.3em] text-gold-400 uppercase">
-            Est. 2024 — Semarang
+            Est. 2016 — Semarang
           </span>
           <span className="h-[1px] w-8 md:w-16 bg-gold-400/60"></span>
         </motion.div>
@@ -80,7 +80,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="font-sans text-gold-100/90 max-w-lg text-sm md:text-base leading-relaxed tracking-wide mb-10"
         >
-          Kami merancang pernikahan impian dengan sentuhan personal, elegan, dan perencanaan presisi untuk momen sekali seumur hidup Anda.
+          Kami percaya pernikahan yang indah bermula dari perhatian pada detail-detail kecil. Bersama Radeva, kami merangkai keinginan Anda menjadi perayaan yang penuh makna dan tak terlupakan.
         </motion.p>
 
         {/* CTA Button */}

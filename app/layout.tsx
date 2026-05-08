@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Radeva Organizer | Exclusive Wedding Planner",
+  title: "Radeva Wedding Organizer | Exclusive Wedding Planner",
   description: "Mewujudkan pernikahan impian dengan sentuhan kemewahan dan presisi.",
 };
 

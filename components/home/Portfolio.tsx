@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+
 
 const PORTFOLIO_ITEMS = [
   {
@@ -109,9 +109,7 @@ export default function Portfolio() {
                     <p className="text-gold-100/60 text-sm mt-1">{item.location}</p>
                   </div>
                   
-                  <div className="h-10 w-10 rounded-full border border-gold-500/30 flex items-center justify-center text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <ArrowUpRight size={18} />
-                  </div>
+
                 </div>
               </div>
             </div>

@@ -47,13 +47,13 @@ export default function About() {
             </h4>
             <h2 className="font-serif text-4xl md:text-6xl text-gold-100 mb-8 leading-tight">
               We Don't Just Plan, <br />
-              <span className="text-gold-500 italic">We Curate Art.</span>
+              <span className="text-gold-500 italic">We Curate Memory.</span>
             </h2>
             <p className="font-sans text-gold-100/80 leading-relaxed mb-6 text-justify">
-              Radeva Organizer lahir dari keyakinan bahwa pernikahan bukan sekadar acara, melainkan sebuah mahakarya. Kami memadukan estetika visual dengan logistik presisi.
+              Kami percaya pernikahan bukan sekadar tentang susunan acara, melainkan tentang rasa dan kenangan yang tercipta. Itulah mengapa kami selalu memberikan sentuhan personal dalam setiap perencanaan yang kami buat.
             </p>
             <p className="font-sans text-gold-100/80 leading-relaxed mb-8 text-justify">
-              Setiap detail—dari pencahayaan hingga alur acara—dirancang untuk menciptakan atmosfer yang intim dan agung. Biarkan kami menangani kerumitan, sementara Anda menikmati momennya.
+              Dari tata cahaya yang hangat hingga urutan acara yang mengalir, semua kami siapkan dengan hati. Fokuslah pada kebahagiaan Anda dan pasangan, sementara kami memastikan segalanya berjalan sebagaimana mestinya.
             </p>
 
             {/* Signature / Stats */}
@@ -93,7 +93,6 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-radeva-900/60 to-transparent" />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

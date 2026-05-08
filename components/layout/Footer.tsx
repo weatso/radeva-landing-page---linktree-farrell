@@ -11,7 +11,7 @@ const Footer = () => {
           Start your <span className="italic text-gold-500">forever</span> with us.
         </h3>
         <p className="font-sans text-gold-100/60 mb-10 max-w-lg mx-auto font-light">
-          Jadwalkan konsultasi privat untuk mendiskusikan visi pernikahan Anda. Tanpa komitmen.
+          Kami percaya pernikahan yang indah bermula dari percakapan yang hangat. Mari bincangkan rencana besar Anda bersama tim kami.
         </p>
         <Link 
           href="https://api.whatsapp.com/message/D7Q5SSKRFV7ND1?autoload=1&app_absent=0"
@@ -98,10 +98,6 @@ const Footer = () => {
         {/* 3. Copyright */}
         <div className="mt-16 pt-8 border-t border-gold-500/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans text-gold-100/40 uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} Radeva Wedding. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-gold-500">Privacy</a>
-            <a href="#" className="hover:text-gold-500">Terms</a>
-          </div>
         </div>
       </div>
     </footer>
